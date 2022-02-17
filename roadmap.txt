@@ -1,0 +1,8 @@
+commit: df3062c
+*: implement some kind of regex to make sure url's are legit?
+*: figure out exactly how I'm going to use httpCheck
+*: find out a more elegant solution for the return when the url is already there. prob something like return an object with a flag to figure out on client side
+^ DONE-ISH KINDA
+*:figure out exactly why url.baseUrl doesn't work when there isn't a real url. probably that's why lul
+*: possibly add a www check to httpCheck as well, maybe rename it urlCheck? would have to rename the db urlCheck if I do that
+*: maybe add an https upgrade to all http routes? seems like kind of a pog thing for the SECKSurity engineer in me
