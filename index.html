@@ -12,7 +12,7 @@
     <h1>put da shit in ho</h1>
     <input type="text" id="inp">
     <button id="sub">submit</button>
-    <h3 id="out"></h3>
+    <a href="" id="out"></a>
 
 
     <script>
@@ -26,6 +26,7 @@
             const data = await response.text()
             console.log(data)
             out.innerText = data
+            out.href = data
         })
 
 
