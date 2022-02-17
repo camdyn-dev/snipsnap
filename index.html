@@ -6,10 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
+    <h1 id="out">123456</h1>
+    <input type="text" id="inp">
+    <button id="sub">submit</button>
 
+
+    <script>
+        const inp = document.querySelector("#inp")
+        const sub = document.querySelector("#sub")
+        sub.addEventListener("click", async () => {
+            const response = await fetch("http://localhost:3000/?" + new URLSearchParams({
+                url: inp.value
+            }))
+            const data = await response.text()
+            console.log(data)
+        })
+
+
+    </script>
 </body>
 
 </html>
