@@ -16,22 +16,20 @@
 
 
     <script>
+        const clientUrlVal = /^(http(s)?:\/\/)?([w]{3}\.)?([a-zA-Z0-9-]+)(\.)([a-z]{2,3})((\/)?[a-zA-Z0-9\/&()\-_=+.?]+)?$/
+
+
         const inp = document.querySelector("#inp")
         const sub = document.querySelector("#sub")
         const out = document.querySelector("#out")
-        let prepend = ""
         sub.addEventListener("click", async () => {
             const response = await fetch("http://localhost:3000/?" + new URLSearchParams({
                 url: inp.value
             }))
             const data = await response.json()
             console.log(data)
-            if (data.urlCheck) {
-                prepend = data.urlCheck
-            }
-            out.innerText = `${prepend} Here's your url! http://localhost:3000/${data.newUrl}`
-            out.href = `http://localhost:3000/${data.newUrl}`
-            prepend = "" //bit of a shitty solution, will prob work on it sometime tomorrow
+            out.innerText = `Here's your url! http://localhost:3000/${data.result}`
+            out.href = `http://localhost:3000/${data.result}`
         })
 
 

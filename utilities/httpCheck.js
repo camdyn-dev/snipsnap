@@ -10,9 +10,10 @@ module.exports = httpCheck = (originalUrl) => { //checks if http:// or https:// 
         prepend = false
         originalUrl = "https://" + originalUrl
     }
-    console.log(prepend)
+    console.log(`httpCheck result: ${prepend}`) //remove this eventually
     return originalUrl
 }
 
 //it may seem kinda 1head to do it with substring, but it's so someone doesn't do some shit like "alskdfl;ahttps://"
 //unsure if I want to prepend the url directly in the program or write another function for it, or maybe do it directly in the route instead?
+//gonna need to figure out what to do with the prepend thing, honestly it's kinda useless rn

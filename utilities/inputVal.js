@@ -4,7 +4,7 @@ module.exports = inputVal = (req, res, next) => {
         return next()
     } else {
         res.header("Access-Control-Allow-Origin", "*")
-        return res.send("ERROR: Invalid input, fucking eeedeeediot")
+        return res.json({ newUrl: "ERROR: Invalid input, fucking eeedeeediot" }) //giga shit way for now. should honestly just change "newurl" to "result"
     }
 }
 
@@ -12,3 +12,5 @@ module.exports = inputVal = (req, res, next) => {
 //1: make sure they're not passing in an array, like /?url=bobs&url=vagana
 //2: make sure it doesn't contain a dollar sign, since that can be used for mongo injections apparently
 //3: make sure it has a dot for domain extension (maybe I should iterate through a list of most common domain names?)
+
+//this might not even be needed, since I've got the Regex now, but hey an extra layer never hurt
