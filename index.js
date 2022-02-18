@@ -30,6 +30,7 @@ app.get("/", preVal, async (req, res) => {
 
     if (originVal(originalUrl)) {
 
+
         const dupeCheck = await Url.findOne({ baseUrl: originalUrl })
         if (!dupeCheck) { //makes sure there isn't already a URL in that
 
@@ -44,17 +45,16 @@ app.get("/", preVal, async (req, res) => {
             })
             await url.save()
 
-            return res.send({ result: url.newUrl }) // 36 ** 6 has like 200 million unique outcomes, so 6 characters should be more than enough
+            return res.send({ result: `https://localhost:3000/${url.newUrl}` }) // 36 ** 6 has like 200 million unique outcomes, so 6 characters should be more than enough
         }
 
         else { //for line 34
-            return res.send({ result: dupeCheck.newUrl }) //if it already exists, just send it back : I'll find a more elegant solution for this prob
+            return res.send({ result: `https://localhost:3000/${dupeCheck.newUrl}` }) //if it already exists, just send it back : I'll find a more elegant solution for this prob
         }
 
     }
 
     else { //for line 31
-        console.log("fuckin idiot didn't put the shit in correctly KEKEKEKEKEKEKEKEKEKE ")
         return res.send({ result: "ERROR: Input not formatted correctly!" })
     }
 }
@@ -62,7 +62,6 @@ app.get("/", preVal, async (req, res) => {
 
 app.get("/:newUrl", async (req, res) => {
     const { newUrl } = req.params
-<<<<<<< HEAD
     if (retrieveVal(newUrl)) {
         const url = await Url.findOne({ newUrl })
         if (url) {
@@ -71,12 +70,6 @@ app.get("/:newUrl", async (req, res) => {
         else {
             return res.send("That URL isn't valid! Please try again")
         }
-=======
-    console.log(retrieveVal(newUrl))
-    const url = await Url.findOne({ newUrl })
-    if (url) {
-        return res.redirect(url.baseUrl)
->>>>>>> 862c1eff22a5a35eb728a8714f040b9bf3f3a969
     }
     else {
         return res.send("That URL isn't valid! Please try again")

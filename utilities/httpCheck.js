@@ -10,7 +10,6 @@ module.exports = httpCheck = (originalUrl) => { //checks if http:// or https:// 
         prepend = false
         originalUrl = "https://" + originalUrl
     }
-    console.log(`httpCheck result: ${prepend}`) //remove this eventually
     return originalUrl
 }
 

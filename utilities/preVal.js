@@ -4,7 +4,7 @@ module.exports = preVal = (req, res, next) => {
         return next()
     } else {
         res.header("Access-Control-Allow-Origin", "*")
-        return res.json({ newUrl: "ERROR: Invalid input, fucking eeedeeediot" }) //giga shit way for now. should honestly just change "newurl" to "result"
+        return res.json({ result: "ERROR: Invalid input, fucking eeedeeediot" }) //giga shit way for now. should honestly just change "newurl" to "result"
     }
 }
 
