@@ -1,4 +1,9 @@
-module.exports = urlVal = /^(http(s)?:\/\/)([w]{3}\.)?([a-zA-Z0-9\-]+)(\.)([a-zA-Z]{2,3}|[a-zA-Z]{1,2}\.[a-zA-Z]{1,2})((\/)[a-zA-Z0-9\/&()\-_=+.?]*)?$/
+module.exports = originVal = (url) => {
+    const urlVal = /^(http(s)?:\/\/)([w]{3}\.)?([a-zA-Z0-9\-]+)(\.)([a-zA-Z]{2,3}|[a-zA-Z]{1,2}\.[a-zA-Z]{1,2})((\/)[a-zA-Z0-9\/&()\-_=+.?]*)?$/
+    return urlVal.test(url)
+
+
+}
 //regex is so fucking aids to look at, i'll try to explain it
 //first block: checks if there's http:// or https://, the (s)? means the S is optional
 //second block: optionally checks for "www."
