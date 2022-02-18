@@ -62,6 +62,7 @@ app.get("/", preVal, async (req, res) => {
 
 app.get("/:newUrl", async (req, res) => {
     const { newUrl } = req.params
+<<<<<<< HEAD
     if (retrieveVal(newUrl)) {
         const url = await Url.findOne({ newUrl })
         if (url) {
@@ -70,6 +71,12 @@ app.get("/:newUrl", async (req, res) => {
         else {
             return res.send("That URL isn't valid! Please try again")
         }
+=======
+    console.log(retrieveVal(newUrl))
+    const url = await Url.findOne({ newUrl })
+    if (url) {
+        return res.redirect(url.baseUrl)
+>>>>>>> 862c1eff22a5a35eb728a8714f040b9bf3f3a969
     }
     else {
         return res.send("That URL isn't valid! Please try again")
