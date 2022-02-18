@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require("express");
 const app = express();
+const rateLimit = require('express-rate-limit')
 
 const mongoose = require('mongoose');
 const Url = require("./models/url")
@@ -17,15 +18,25 @@ const httpCheck = require("./utilities/httpCheck")
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/urlShortener');
+    await mongoose.connect(process.env.DB_LINK);
 }
+//mongodb://localhost:27017/urlShortener
+
+const limit = rateLimit({ //express rate limit
+    windowMs: 60 * 60 * 1000, // one hour
+    max: 50, // 50 address creations per hour
+    message: "Too many requests in the past hour! Please try again later",
+    standardHeaders: true, // honeslty dunno what these two do
+    legacyHeaders: false, // but they're on in the docs so they're probably good
+})
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const crypto = require("crypto-js")
 
-app.get("/", preVal, async (req, res) => {
+app.get("/", limit, preVal, async (req, res) => {
     let originalUrl = req.query.url //grab inputted url
     res.header("Access-Control-Allow-Origin", "*") //this is really annoying, the fetch will not work without it which makes me VERY ANGRY
 
