@@ -1,4 +1,4 @@
-module.exports = inputVal = (req, res, next) => {
+module.exports = preVal = (req, res, next) => {
     const query = req.query.url
     if (typeof (query) === "string" && query.indexOf("$") === -1 && query.indexOf(".") !== -1) {
         return next()
