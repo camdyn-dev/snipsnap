@@ -6,14 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>urlShorten</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>put da shit in ho</h1>
-    <input type="text" id="inp">
-    <button id="sub">submit</button>
-    <a href="" id="out"></a>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-4 offset-1">
+                <h1 style="font-family: 'Poppins', sans-serif; color: lightcoral; text-align: center;">Snippy</h1>
+                <div class="card">
+                    <div class="card-body">
 
+                        <h5 class="card-title text-center">Enter the url you want to shorten</h5>
+                        <input type="text" class="form-control" placeholder="https://example.com" id="inp">
+                        <button class="btn btn-outline-secondary" type="button" id="sub">submit</button>
+                        <a href="" id="out"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script>
         const clientUrlVal = /^(http(s)?:\/\/)?([w]{3}\.)?([a-zA-Z0-9-]+)(\.)([a-z]{2,3})((\/)?[a-zA-Z0-9\/&()\-_=+.?]+)?$/
@@ -28,12 +44,16 @@
             }))
             const data = await response.json()
             console.log(data)
-            out.innerText = `Here's your url! http://localhost:3000/${data.result}`
-            out.href = `http://localhost:3000/${data.result}`
+            out.innerText = data.result
+            out.href = data.result
         })
 
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
