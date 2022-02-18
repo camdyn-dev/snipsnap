@@ -14,38 +14,52 @@
 </head>
 
 <body>
+    <header class="container-fluid text-center">
+        <img src="./logo.png" alt="" class="img-fluid">
+    </header>
     <main class="container-fluid">
         <div class="row">
-            <div class="col-4 offset-1">
-                <h1 style="font-family: 'Poppins', sans-serif; color: lightcoral; text-align: center;">Snippy</h1>
-                <div class="card">
-                    <div class="card-body">
+            <div class="col-md-6 offset-md-3 mt-5">
+                <h5 class="card-title text-center">Enter the url you want to shorten</h5>
+                <div class="input-group w-75 mx-auto">
+                    <input type="text" class="form-control" placeholder="https://example.com" id="inp">
+                    <button class="btn btn-outline-secondary" type="button" id="sub">submit</button>
+                </div>
+                <br>
+                <div class="mx-auto text-center">
+                    <span>Output:</span><a href="" id="out"></a>
 
-                        <h5 class="card-title text-center">Enter the url you want to shorten</h5>
-                        <input type="text" class="form-control" placeholder="https://example.com" id="inp">
-                        <button class="btn btn-outline-secondary" type="button" id="sub">submit</button>
-                        <a href="" id="out"></a>
-                    </div>
+                    <p class="mt-3">Make sure it follows the standard url format! <br>
+                        "https://example.com"
+                        |
+                        "example.com"
+                    </p>
                 </div>
             </div>
         </div>
+
     </main>
 
     <script>
-        const clientUrlVal = /^(http(s)?:\/\/)?([w]{3}\.)?([a-zA-Z0-9-]+)(\.)([a-z]{2,3})((\/)?[a-zA-Z0-9\/&()\-_=+.?]+)?$/
+        const clientUrlVal = /^(http(s)?:\/\/)?([w]{3}\.)?([a-zA-Z0-9-]+)(\.)([a-z]{2,3}|[a-z]{1,2}\.[a-z]{1,2})(\/[a-zA-Z0-9\/&()\-_=+.?]+)?$/
 
 
         const inp = document.querySelector("#inp")
         const sub = document.querySelector("#sub")
         const out = document.querySelector("#out")
         sub.addEventListener("click", async () => {
-            const response = await fetch("http://localhost:3000/?" + new URLSearchParams({
-                url: inp.value
-            }))
-            const data = await response.json()
-            console.log(data)
-            out.innerText = data.result
-            out.href = data.result
+            if (clientUrlVal.test(inp.value)) {
+                const response = await fetch("http://localhost:3000/?" + new URLSearchParams({
+                    url: inp.value
+                }))
+                const data = await response.json()
+                console.log(data)
+                out.innerText = data.result
+                out.href = data.result
+            } else {
+                out.innerText = "ERROR: Input invalid!"
+            }
+
         })
 
 

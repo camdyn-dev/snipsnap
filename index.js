@@ -45,11 +45,11 @@ app.get("/", preVal, async (req, res) => {
             })
             await url.save()
 
-            return res.send({ result: `https://localhost:3000/${url.newUrl}` }) // 36 ** 6 has like 200 million unique outcomes, so 6 characters should be more than enough
+            return res.send({ result: `http://localhost:3000/${url.newUrl}` }) // 36 ** 6 has like 200 million unique outcomes, so 6 characters should be more than enough
         }
 
         else { //for line 34
-            return res.send({ result: `https://localhost:3000/${dupeCheck.newUrl}` }) //if it already exists, just send it back : I'll find a more elegant solution for this prob
+            return res.send({ result: `http://localhost:3000/${dupeCheck.newUrl}`, extras: "Already in DB!" }) //if it already exists, just send it back : I'll find a more elegant solution for this prob
         }
 
     }
