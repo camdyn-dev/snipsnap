@@ -4,11 +4,11 @@ module.exports = preVal = (req, res, next) => {
         return next()
     } else {
         res.header("Access-Control-Allow-Origin", "*")
-        return res.json({ result: "ERROR: Invalid input, fucking eeedeeediot" }) //giga shit way for now. should honestly just change "newurl" to "result"
+        return res.json({ result: "ERROR: Invalid input!" }) //giga shit way for now. should honestly just change "newurl" to "result"
     }
 }
 
-//line 3 serves 2 purposes (WOW I WONDER HOW ANYONE WOULD'VE FUCKING GUESSED THAT?!??!?!@?@!!@);
+//line 3 serves 3 purposes (WOW I WONDER HOW ANYONE WOULD'VE FUCKING GUESSED THAT?!??!?!@?@!!@);
 //1: make sure they're not passing in an array, like /?url=bobs&url=vagana
 //2: make sure it doesn't contain a dollar sign, since that can be used for mongo injections apparently
 //3: make sure it has a dot for domain extension (maybe I should iterate through a list of most common domain names?)
