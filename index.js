@@ -95,9 +95,5 @@ app.get("/:newUrl", async (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
-<<<<<<< HEAD
-    console.log("listening on whatever port is in the env")
-=======
     console.log("listening on whatever port in da ENV")
->>>>>>> heroku
 })
