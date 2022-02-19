@@ -60,7 +60,7 @@ app.get("/", limit, preVal, async (req, res) => {
             })
             await url.save()
 
-            return res.send({ result: `${process.env.DOMAIN}${url.newUrl}` }) // 36 ** 6 has like 200 million unique outcomes, so 6 characters should be more than enough
+            return res.send({ result: `${process.env.DOMAIN}${url.newUrl}` })
         }
 
         else { //for line 34
@@ -95,5 +95,9 @@ app.get("/:newUrl", async (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
+<<<<<<< HEAD
     console.log("listening on whatever port is in the env")
+=======
+    console.log("listening on whatever port in da ENV")
+>>>>>>> heroku
 })

@@ -6,3 +6,5 @@ commit: df3062c
 *:figure out exactly why url.baseUrl doesn't work when there isn't a real url. probably that's why lul
 *: possibly add a www check to httpCheck as well, maybe rename it urlCheck? would have to rename the db urlCheck if I do that
 *: maybe add an https upgrade to all http routes? seems like kind of a pog thing for the SECKSurity engineer in me
+_______________________
+app kinda done now so i dunno, maybe try to monetize it by adding click info. that'd make me have to implement api key stuff
