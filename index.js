@@ -94,6 +94,6 @@ app.get("/:newUrl", async (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("listening on p3000")
+app.listen(process.env.PORT, () => {
+    console.log("listening on whatever port is in the env")
 })
