@@ -1,5 +1,5 @@
 module.exports = originVal = (url) => {
-    const urlVal = /^(http(s)?:\/\/)([w]{3}\.)?([a-zA-Z0-9\-]+)(\.)([a-zA-Z]{2,3}|[a-zA-Z]{1,2}\.[a-zA-Z]{1,2})((\/)[a-zA-Z0-9\/&()\-_=+.?%]*)?$/
+    const urlVal = /^(http(s)?:\/\/)([w]{3}\.)?([a-zA-Z0-9\-\.]+)(\.)([a-zA-Z]{2,3}|[a-zA-Z]{1,2}\.[a-zA-Z]{1,2})((\/)[a-zA-Z0-9\/&()\-_=+.?%]*)?$/
     return urlVal.test(url)
 
 
