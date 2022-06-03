@@ -9,4 +9,4 @@ Prepending it with http:// or https:// is not necessary, as it will automaticall
 
 Just make sure your url has a valid domain extension and no $'s and all will work!
 
-If you'd like to, I made a quick video you can watch at https://www.youtube.com/watch?v=oBD7ic5MsJw
+\- Camdyn
